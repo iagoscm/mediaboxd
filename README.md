@@ -9,4 +9,3 @@ Integrantes da equipe:
 - Iago Campelo
 - Hellen Faria
 - Henrique Pucci
-- 
