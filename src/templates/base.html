@@ -30,6 +30,24 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% if user.is_authenticated %}
+                <div class="nav-item form-inline my-2 my-md-0">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </div>
+                {% else %}
+                <div class="nav-item form-inline my-2 my-md-0">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </div>
+                {% endif %}
+            </div>
         </nav>
         {% block content %}
         {% endblock %}

@@ -1,0 +1,11 @@
+<body>
+    <ul>
+        {% for review in reviews %}
+            <a href="{% url 'update_review' review.id %}">
+                <li> {{ review.description }}</li>
+            </a>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'create_reviews' %}">New review</a>
+</body>

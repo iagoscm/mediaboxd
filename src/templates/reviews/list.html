@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Reviews{% endblock %}
+{% block content %}
+
+<div class="offset-1 col-10 list-div">
+    <h1>Lista de Reviews</h1>
+    <a href="{% url 'create_reviews' %}">Criar review</a>
+    <div class="col-9 search-div">
+        <input class="form-control" type="text" id="search" name="search"
+            placeholder="Digite o nome do review para buscar...">
+        <i class="fas fa-search"></i>
+    </div>
+    <ul class="review-list">
+        {% for review in reviews %}
+        <li class="review-item">
+            <span> {{review.id}} | {{ review.title }} - {{review.author}} </span>
+            <span><i class="fas fa-trash"></i></span>
+            <span><i class="fas fa-edit"></i></span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
