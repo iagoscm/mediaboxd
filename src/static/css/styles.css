@@ -1,5 +1,5 @@
 body{
-    background-color:rgb(41, 41, 41);
+    background-color:rgb(41, 41, 41) !important;
 }
 
 h1{
@@ -14,6 +14,10 @@ span{
     color: white;
 }
 
+/* .botao{
+    background-color: rgb(255, 217, 0);
+} */
+
 .container-fluid {
     padding: 0;
 }
@@ -21,16 +25,19 @@ span{
 /* Navbar */
 
 .navbar  {
+    background-color:rgb(255, 217, 0) !important;
     border-bottom: 1px solid #333;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .navbar-nav {
-    margin: auto;
+    margin: none;
 }
 
 .navbar-brand {
     font-weight: bold;
+    color:rgb(41, 41, 41) !important;
 }
 
 .navbar-light .navbar-nav a.nav-link {
