@@ -14,12 +14,26 @@ span{
     color: white;
 }
 
-/* .botao{
-    background-color: rgb(255, 217, 0);
-} */
-
 .container-fluid {
     padding: 0;
+}
+
+
+.hyperlink{
+    color:rgb(41, 41, 41) !important;
+}
+
+.hyperlink2{
+    color:rgb(255, 255, 255) !important;
+}
+
+/* Botao */
+
+.botao{
+    background-color: rgb(255, 217, 0) !important;
+    color:rgb(41, 41, 41) !important;
+    border: none !important;
+    font-weight: bold !;
 }
 
 /* Navbar */
