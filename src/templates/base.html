@@ -40,11 +40,11 @@
                 </ul>
                 {% if user.is_authenticated %}
                 <div class="nav-item form-inline my-2 my-md-0">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="hyperlink nav-link" href="{% url 'logout' %}">Logout</a>
                 </div>
                 {% else %}
                 <div class="nav-item form-inline my-2 my-md-0">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="hyperlink nav-link" href="{% url 'login' %}">Login</a>
                 </div>
                 {% endif %}
             </div>
