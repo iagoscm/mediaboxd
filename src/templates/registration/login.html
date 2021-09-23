@@ -14,7 +14,8 @@
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next }}">
                     {{form|crispy}}
-                    <button type="submit" class="btn btn-primary btn-block"> Entrar </button>
+                    <button type="submit" class="botao btn btn-primary btn-block"> Entrar </button>
+                    <a class="botao btn btn-primary btn-block" href="/accounts/register">Cadastrar</a>
                 </form>
             </div>
         </div>
