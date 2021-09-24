@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
-{% block title %}Lista de Reviews{% endblock %}
 {% block content %}
 
 <div class="offset-1 col-10 list-div">
     <h1>Lista de Reviews</h1>
-    <a class="hyperlink2" href="{% url 'create_reviews' %}">Criar review</a>
-    <div class="col-9 search-div">
+    <a class="botao btn btn-primary" href="{% url 'create_reviews' %}">Criar Review</a>
+    <!-- <div class="col-9 search-div">
         <input class="form-control" type="text" id="search" name="search"
             placeholder="Digite o nome do review para buscar...">
         <i class="fas fa-search"></i>
-    </div>
+    </div> -->
     <ul class="review-list">
         {% for review in reviews %}
         <li class="review-item">
-            <span> {{review.id}} | {{ review.title }} - {{review.author}} </span>
-            <span><i class="fas fa-trash"></i></span>
-            <span><i class="fas fa-edit"></i></span>
+            <span> {{review.id}} | </span>
+            <span><a href="{{review.id}}"> {{ review.title }} - {{review.created_at}}</a></span>
+            <a type="submit" href="delete/{{review.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+            <a href="update/{{review.id}}"><span><i class="fas fa-edit"></i></span></a>
         </li>
         {% endfor %}
     </ul>

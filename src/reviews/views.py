@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Review
 from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 
 @login_required
 def list_reviews(request):
@@ -20,7 +20,7 @@ def create_review(request):
         review.save()
         return redirect('list_reviews')
     
-    return render(request, 'reviews/form.html', {'form': form})
+    return render(request, 'reviews/form-create.html', {'form': form})
 
 
 @login_required
@@ -32,15 +32,18 @@ def update_review(request, id):
         form.save()
         return redirect('list_reviews')
 
-    return render(request, 'reviews/form.html', {'form': form, 'review': review})
+    return render(request, 'reviews/form-update.html', {'form': form, 'review': review})
 
 
 @login_required
 def delete_review(request, id):
-    review = Review.objects.get(id=id)
+    task = get_object_or_404(Review, pk=id)
+    task.delete()
 
-    if request.method == 'POST':
-        review.delete()
-        return redirect('list_reviews')
+    messages.info(request, 'Tarefa deletada com sucesso.')
 
-    return render(request, 'review/delete-confirm.html', {'review': review})
+    return redirect('list_reviews')
+
+def show_review(request, id):
+    review = get_object_or_404(Review, pk=id)
+    return render(request, 'reviews/show.html', {'review': review})
