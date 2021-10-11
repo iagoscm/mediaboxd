@@ -1,13 +1,37 @@
 body{
     background-color:rgb(41, 41, 41) !important;
+    color: white !important;
+}
+
+.body2{
+    padding: 40px;
+    background-color:rgb(255, 217, 0) !important;
+    color:rgb(41, 41, 41) !important;
+    font-size: 25px;
+}
+
+footer{
+    background-color:rgb(41, 41, 41) !important;
+    color: white !important;
 }
 
 h1{
     color:rgb(255, 217, 0);
 }
 
-p{
-    color: white;
+.titulo{
+    color: rgb(255, 217, 0) !important;
+    font-size: 70px !important;
+    font-weight: bold !important;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.subtitulo{
+    color: white !important;
+    font-size: 25px !important;
+    margin-bottom: 20px;
 }
 
 span{
@@ -33,14 +57,35 @@ span{
     background-color: rgb(255, 217, 0) !important;
     color:rgb(41, 41, 41) !important;
     border: none !important;
-    font-weight: bold !;
+    font-weight: bold !important;
+    margin-bottom: 40px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+  
+/* Clear floats after image containers */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 /* Navbar */
 
 .navbar  {
     background-color:rgb(255, 217, 0) !important;
-    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.navbar-footer  {
+    background-color:rgb(41, 41, 41) !important;
+    border: none !important;
     margin-bottom: 20px;
     width: 100%;
 }
@@ -50,6 +95,7 @@ span{
 }
 
 .navbar-brand {
+    font-size: 20px !important;
     font-weight: bold;
     color:rgb(41, 41, 41) !important;
 }
@@ -60,7 +106,6 @@ span{
 }
 
 /* Botão de adicionar */
-
 
 #add-link {
     text-decoration: none;
