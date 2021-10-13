@@ -10,6 +10,10 @@ body{
     font-size: 25px;
 }
 
+img{
+    border-radius: 10px;
+}
+
 /* Texto */
 
 h1{
@@ -17,15 +21,20 @@ h1{
     font-size: 70px !important;
     font-weight: bold !important;
     line-height: 1 !important;
+    margin-bottom: 0px !important;
 }
 
 .subtitulo{
     font-size: 25px !important;
-    margin-bottom: 20px;
+    margin-bottom: 25px !important;
 }
 
 span{
     color: white;
+}
+
+p{
+    margin-bottom: 0px !important;
 }
 
 /* Container */
@@ -237,5 +246,5 @@ ul.messages li {
 .row::after {
     content: "";
     clear: both;
-    display: table;
+    display: flex;
 }
