@@ -38,7 +38,7 @@
                 <ul class="navbar-nav mr-auto">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/reviews">Reviews</a>
+                        <a class="hyperlink nav-link" href="/reviews">Reviews</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -63,22 +63,14 @@
 </body>
 
 <footer>
-    <div style="padding: 0px;" class="container-fluid">
-        <nav class="navbar-footer navbar navbar-expand-lg navbar-light">
-            <a class="hyperlink2 nav-link" href="/sobre">Sobre</a>
-            <a class="hyperlink2 nav-link" href="/api">API</a>
-            <a class="hyperlink2 nav-link" href="/colabore">Colabore com o Site</a>
-            <a class="hyperlink2 nav-link" href="/comunidade">Comunidade</a>
-            
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/reviews">Reviews</a>
-                    </li>
-                </ul>
-                <div class="nav-item form-inline my-2 my-md-0">
-                    <a class="hyperlink2 nav-link" href="instagram.com/mediaboxd/">Instagram</a>
-                </div>
+    <div class="container-fluid">
+        <nav>
+            <a class="hyperlink-footer nav-link" href="/sobre">Sobre</a>
+            <a class="hyperlink-footer nav-link" href="/api">API</a>
+            <a class="hyperlink-footer nav-link" href="/colabore">Colabore com o Site</a>
+            <a class="hyperlink-footer nav-link" href="/comunidade">Comunidade</a>
+        </nav>
+        <p><i>Todos os direitos reservados</i></p>
     </div>
 </footer>
 
