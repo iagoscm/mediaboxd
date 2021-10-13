@@ -1,25 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<style type="text/css">
-  #texto{
-    text-align: center;
-  }
-</style>
-
-<main id="texto" role="main" class="inner cover">
-    <div>
-      <p class="titulo">mediaboxd</p>
+<main style="text-align: center;" role="main" class="inner cover">
+    <div id="titulo_do_site">
+      <h1>mediaboxd</h1>
       <p class="subtitulo">O melhor site de reviews</p>
       <p class="lead">
         <a href="/accounts/login/" class="botao btn btn-lg btn-secondary">Saiba mais</a>
       </p>
     </div>
     
-    <div class="body2">
-      <p>Você quer saber o que estão falando do seu filme ou série favorita?<br>Procurando algum livro novo para ler? Cansado do mesmo jogo?</p>
-      <p><b>Saiba tudo isso no mediaboxd!</b></p>
+    <div style="padding:40px;font-size:24px;" id="texto_explicativo">
+      <p>No Mediaboxd você pode fazer reviews do que você mais gosta de fazer! 
+      <br><b>Crie já sua conta e comece a dar sua opinião!</b></p>
+    </div>
 
+    <div id="imagens" class="body2">
+      <p class="subtitulo"><b>Todas as formas de entretenimento em um só lugar!</b></p>
       <div class="row">
         <div class="column">
           <img src="imagens/filme.jpg" alt="Esquadrao Suicida" style="width:100%">
@@ -38,7 +35,10 @@
           <p><b>Livros</b></p>
         </div>
       </div>
-
+      <p class="subtitulo"><b>Veja o que a galera tá comentando!</b></p>
+      <div>
+        <!-- slideshow --> 
+      </div>
     </div>
 </main>
 
