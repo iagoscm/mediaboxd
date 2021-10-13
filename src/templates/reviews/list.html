@@ -13,7 +13,7 @@
     <ul class="review-list">
         {% for review in reviews %}
         <li class="review-item">
-            <span> {{review.id}} | {{ review.title }} - {{review.author}} </span>
+            <span> <b>{{review.id}}</b> {{ review.title }}  <i>{{review.author}}</i> </span>
             <span><i class="fas fa-trash"></i></span>
             <span><i class="fas fa-edit"></i></span>
         </li>
