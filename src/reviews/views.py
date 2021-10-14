@@ -1,3 +1,4 @@
+from django.db import models
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Review
 from .forms import ReviewForm
@@ -47,3 +48,15 @@ def delete_review(request, id):
 def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
     return render(request, 'reviews/show.html', {'review': review})
+
+
+# Rascunho do Luan
+from list.html import input
+
+@login_required
+def search_review(request):
+    review = Review.objects.all()
+
+    for review in reviews:
+        if input == Review.title or input == Review.content:
+            return render(request)
