@@ -53,21 +53,8 @@
                 {% endif %}
             </div>
         </nav>
-        <body>
-            {% include 'main/includes/messages.html' %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>{% block title %}{% endblock %}</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        {% block content %}{% endblock %}
-                    </div>
-                </div>
-            </div>
-        </body>
+        {% block content %}
+        {% endblock %}
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
         integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"

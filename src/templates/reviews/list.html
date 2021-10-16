@@ -4,11 +4,11 @@
 <div style="height: 400px;" class="offset-1 col-10 list-div">
     <h1>Lista de Reviews</h1>
     <a class="botao btn btn-primary" href="{% url 'create_reviews' %}">Criar Review</a>
-    <!-- <div class="col-9 search-div">
+    <div class="col-9 search-div">
         <input class="form-control" type="text" id="search" name="search"
             placeholder="Digite o nome do review para buscar...">
         <i class="fas fa-search"></i>
-    </div> -->
+    </div>
     <ul class="review-list">
         {% for review in reviews %}
         <li class="review-item">
