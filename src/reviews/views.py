@@ -1,4 +1,4 @@
-from django.db import models
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Review
 from .forms import ReviewForm
@@ -7,7 +7,15 @@ from django.contrib import messages
 
 @login_required
 def list_reviews(request):
-    reviews = Review.objects.all()
+    query = request.GET.get('q')
+
+    if query:
+        reviews = Review.objects.filter(
+        Q(title__icontains=query) | Q(content__icontains=query)
+    )
+    else:
+        reviews = Review.objects.all()
+
     return render(request, 'reviews/list.html', {'reviews': reviews})
 
 
@@ -48,15 +56,3 @@ def delete_review(request, id):
 def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
     return render(request, 'reviews/show.html', {'review': review})
-
-
-# Rascunho do Luan
-# from list.html import input
-
-# @login_required
-# def search_review(request):
-#     review = Review.objects.all()
-
-#     for review in reviews:
-#         if input == Review.title or input == Review.content:
-#             return render(request)

@@ -5,8 +5,9 @@
     <h1>Lista de Reviews</h1>
     <a class="botao btn btn-primary" href="{% url 'create_reviews' %}">Criar Review</a>
     <div class="col-9 search-div">
-        <input class="form-control" type="text" id="search" name="search"
-            placeholder="Digite o nome do review para buscar...">
+        <form action="{% url 'list_reviews' %}" method="get">
+            <input name="q" type="text" placeholder="Search...">
+          </form>
         <i class="fas fa-search"></i>
     </div>
     <ul class="review-list">
