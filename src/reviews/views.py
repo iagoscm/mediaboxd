@@ -51,12 +51,12 @@ def show_review(request, id):
 
 
 # Rascunho do Luan
-from list.html import input
+# from list.html import input
 
-@login_required
-def search_review(request):
-    review = Review.objects.all()
+# @login_required
+# def search_review(request):
+#     review = Review.objects.all()
 
-    for review in reviews:
-        if input == Review.title or input == Review.content:
-            return render(request)
+#     for review in reviews:
+#         if input == Review.title or input == Review.content:
+#             return render(request)
