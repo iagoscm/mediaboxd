@@ -13,10 +13,9 @@
     <ul class="review-list">
         {% for review in reviews %}
         <li class="review-item">
-            <span> {{review.id}} | </span>
-            <span><a href="{{review.id}}"> {{ review.title }} - {{review.created_at}}</a></span>
-            <a type="submit" href="delete/{{review.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
-            <a href="update/{{review.id}}"><span><i class="fas fa-edit"></i></span></a>
+            <span> <b>{{review.id}}</b> {{ review.title }}  <i>{{review.author}}</i> </span>
+            <span><i class="fas fa-trash"></i></span>
+            <span><i class="fas fa-edit"></i></span>
         </li>
         {% endfor %}
     </ul>
