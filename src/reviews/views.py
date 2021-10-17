@@ -11,10 +11,10 @@ def list_reviews(request):
 
     if query:
         reviews = Review.objects.filter(
-        Q(title__icontains=query) | Q(content__icontains=query)
-    )
+        (Q(title__icontains=query) | Q(content__icontains=query)) & (Q(author_id__exact=request.user.id))
+        )
     else:
-        reviews = Review.objects.all()
+        reviews = Review.objects.filter(Q(author_id__exact=request.user.id))
 
     return render(request, 'reviews/list.html', {'reviews': reviews})
 
