@@ -13,6 +13,11 @@
     <h4 style="color: rgb(255, 217, 0);">Data de publicação</h4>
     <p>{{review.created_at}}</p>
     <p>{{review.user.username}}</p>
+    <br>
+    <h4 style="color: rgb(255, 217, 0);">Tags</h4>
+        {% for tag in review.tags.all %}
+        <p>{{tag}}</p>
+        {% endfor %}
 </div>
 
 {% endblock %}
