@@ -1,10 +1,10 @@
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Review
+from .models import Review, Media
 from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+from django.http import JsonResponse
 @login_required
 def list_reviews(request):
     query = request.GET.get('q')
@@ -26,6 +26,7 @@ def create_review(request):
     if form.is_valid():
         review = form.save(commit=False)
         review.author = request.user
+        review.media = Media.objects.get(pk=form.cleaned_data['media_id'])
         review.save()
         return redirect('list_reviews')
     
@@ -56,3 +57,12 @@ def delete_review(request, id):
 def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
     return render(request, 'reviews/show.html', {'review': review})
+
+def media_autocomplete(request):
+    busca = request.GET['term']
+    medias = Media.objects.filter(name__icontains=busca).values('id', 'name')
+    res = []
+    for media in medias:
+        res.append({'value': media['id'], 'label': media['name']})
+
+    return JsonResponse(res, safe=False)
