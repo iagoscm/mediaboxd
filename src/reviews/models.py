@@ -6,6 +6,7 @@ class Media(models.Model):
     class MediaType(models.TextChoices):
         BOOK = 'book'
         MOVIE = 'movie'
+        SERIE = 'serie'
         MUSIC = 'music'
         GAME = 'game'
         OTHER = 'other'
@@ -21,9 +22,6 @@ class Media(models.Model):
         choices=MediaType.choices,
         default=MediaType.OTHER
     )
-
-    def __str__(self):
-        return self.name
 
     def __str__(self):
         return self.name
