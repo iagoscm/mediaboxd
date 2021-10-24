@@ -62,12 +62,10 @@ def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
     return render(request, "reviews/show.html", {"review": review})
 
-
+@login_required
 def media_autocomplete(request):
-    busca = request.GET["term"]
-    medias = Media.objects.filter(name__icontains=busca).values("id", "name")
-    res = []
-    for media in medias:
-        res.append({"value": media["id"], "label": media["name"]})
+    term = request.GET["term"]
+    medias = Media.objects.filter(name__icontains=term).values("id", "name")
+    res = [{"value": media["id"], "label": media["name"]} for media in medias]
 
     return JsonResponse(res, safe=False)
