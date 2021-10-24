@@ -16,8 +16,6 @@ def index(request):
         "cover_url", "id", "media_type", "name"
     ).first()
 
-    print({"movie": movie, "book": book, "game": game, "serie": serie})
-    print(movie)
     return render(
         request,
         "index.html",
