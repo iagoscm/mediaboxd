@@ -1,258 +1,282 @@
-body{
-    background-color:rgb(41, 41, 41) !important;
-    color: white !important;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-.body2{
-    padding: 40px;
-    background-color:rgb(255, 217, 0) !important;
-    color:#1b1b1b !important;
-    font-size: 25px;
+body {
+  background-color: rgb(41, 41, 41) !important;
+  color: white !important;
+  margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-img{
-    border-radius: 10px;
+.body2 {
+  padding: 40px;
+  background-color: rgb(255, 217, 0) !important;
+  color: #1b1b1b !important;
+  font-size: 25px;
+}
+
+img {
+  border-radius: 10px;
 }
 
 /* Texto */
 
-h1{
-    color: rgb(255, 217, 0) !important;
-    font-size: 70px !important;
-    font-weight: bold !important;
-    line-height: 1 !important;
-    margin-bottom: 0px !important;
+h1 {
+  color: rgb(255, 217, 0) !important;
+  font-size: 70px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  margin-bottom: 0px !important;
 }
 
-.subtitulo{
-    font-size: 25px !important;
-    margin-bottom: 25px !important;
+.subtitulo {
+  font-size: 25px !important;
+  margin-bottom: 25px !important;
 }
 
-span{
-    color: white;
+span {
+  color: white;
 }
 
-p{
-    margin-bottom: 0px !important;
+p {
+  margin-bottom: 0px !important;
 }
 
 /* Container */
 
 .container-fluid {
-    padding: 0;
+  padding: 0;
 }
 
 /* Hyperlink */
 
-.hyperlink{
-    color:#1b1b1b !important;
+.hyperlink {
+  color: #1b1b1b !important;
 }
-    .hyperlink:hover{
-        color:rgb(255, 255, 255) !important;
-
-    }
-
-.hyperlink2{
-    color:rgb(255, 255, 255) !important;
+.hyperlink:hover {
+  color: rgb(255, 255, 255) !important;
 }
-    .hyperlink2:hover{
-        color:rgb(255, 217, 0)!important;
-    }
 
-.hyperlink-footer{
-    color: rgb(80, 80, 80) !important;
+.hyperlink2 {
+  color: rgb(255, 255, 255) !important;
 }
-    .hyperlink-footer:hover{
-        color:rgb(255, 255, 255) !important;
-    }
+.hyperlink2:hover {
+  color: rgb(255, 217, 0) !important;
+}
+
+.hyperlink-footer {
+  color: rgb(80, 80, 80) !important;
+}
+.hyperlink-footer:hover {
+  color: rgb(255, 255, 255) !important;
+}
 
 /* Botao */
 
-.botao{
-    background-color: rgb(255, 217, 0) !important;
-    color:#1b1b1b !important;
-    border: none !important;
-    font-weight: bold !important;
+.botao {
+  background-color: rgb(255, 217, 0) !important;
+  color: #1b1b1b !important;
+  border: none !important;
+  font-weight: bold !important;
+  height: 100%;
 }
-    .botao:hover{
-        background-color: rgb(228, 194, 2) !important;
-    }
+.botao:hover {
+  background-color: rgb(228, 194, 2) !important;
+}
 
 /* Navbar */
 
-.navbar  {
-    background-color:rgb(255, 217, 0) !important;
-    margin-bottom: 20px;
-    width: 100%;
+.navbar {
+  background-color: rgb(255, 217, 0) !important;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-.navbar-footer  {
-    align-content: center;
-    margin-bottom: 20px;
-    width: 100%;
+.navbar-footer {
+  align-content: center;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .navbar-nav {
-    margin: none;
+  margin: none;
 }
 
 .navbar-brand {
-    font-size: 20px !important;
-    font-weight: bold;
-    color:#1b1b1b !important;
+  font-size: 20px !important;
+  font-weight: bold;
+  color: #1b1b1b !important;
 }
-    .navbar-brand:hover{
-        color:rgb(255, 255, 255) !important;
-
-    }
+.navbar-brand:hover {
+  color: rgb(255, 255, 255) !important;
+}
 
 .navbar-light .navbar-nav a.nav-link {
-    color: #1b1b1b;
-    letter-spacing: 1px;
+  color: #1b1b1b;
+  letter-spacing: 1px;
 }
 
 /* Botão de adicionar */
 
 #add-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .add-div {
-    background-color: rgb(255, 217, 0);
-    cursor: pointer;
-    display: inline-block;
-    color: #FFF;
-    padding: 8px;
-    border-radius: 5px;
-    margin-right: 25px;
+  background-color: rgb(255, 217, 0);
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: 25px;
 }
 
 .fas.fa-plus {
-    color: #FFF;
-    margin-right: 10px;
-    margin-left: 5px;
+  color: #fff;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
 /* Search */
 
 .fas.fa-search {
-    color: rgb(255, 217, 0);
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    cursor: pointer;
-    float: right;
+  color: rgb(255, 217, 0);
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  cursor: pointer;
+  float: right;
 }
 
 .search-div {
-    padding: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
 }
 
 /* Lista de tarefas */
 
 .list-div {
-    padding: 0;
+  padding: 0;
 }
 
 .review-list {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .review-item {
-    list-style: none;
-    font-size: 20px;
-    height: 50px;
-    padding-top: 10px;
-    border-bottom: 1px dashed #CCC;
+  list-style: none;
+  font-size: 20px;
+  height: 50px;
+  padding-top: 10px;
+  border-bottom: 1px dashed #ccc;
 }
 
 .fas.fa-trash {
-    color: rgb(255, 217, 0);
-    cursor: pointer;
-    margin: 5px;
-    font-size: 20px;
-    float: right !important;
+  color: rgb(255, 217, 0);
+  cursor: pointer;
+  margin: 5px;
+  font-size: 20px;
+  float: right !important;
 }
 
 .fas.fa-edit {
-    color: rgb(255, 217, 0);
-    cursor: pointer;
-    margin: 5px;
-    font-size: 20px;
-    float: right !important;
+  color: rgb(255, 217, 0);
+  cursor: pointer;
+  margin: 5px;
+  font-size: 20px;
+  float: right !important;
 }
 
 /* Rodapé */
-footer{
-    padding: 40px;
-    background-color:#1b1b1b !important;
-    border: none !important;
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  background-color: #1b1b1b !important;
+  border: none !important;
 }
 
 footer p {
-    color: rgb(80, 80, 80) !important;
-    text-align: center;
-    top: 50%;
-    position: relative;
-    margin: 0px !important;
+  color: rgb(80, 80, 80) !important;
+  text-align: center;
 }
 
 /* Messages */
 
 ul.messages {
-    padding: 0;
+  padding: 0;
 }
 
 ul.messages li {
-    list-style: none;
+  list-style: none;
 }
 
 /* Paginação */
 .pagination {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .step-links {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .step-links .current {
-    margin-left: 5px;
-    margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 /* login */
 .auth-card {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .container-fluid .row {
-    margin-left: 0;
-    margin-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
-    float: left;
-    width: 25%;
-    padding: 5px;
+  float: left;
+  width: 25%;
+  padding: 5px;
 }
 
 .column2 {
-    float: right;
-    width: 50%;
-    padding: 5px;
+  float: right;
+  width: 50%;
+  padding: 5px;
 }
-  
+
 /* Clear floats after image containers */
 .row::after {
-    content: "";
-    clear: both;
-    display: flex;
+  content: "";
+  clear: both;
+  display: flex;
+}
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+  margin-bottom: 80px;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.list-footer {
+  list-style-type: none;
+}
+
+.list-footer li {
+  display: inline;
+  float: left;
 }

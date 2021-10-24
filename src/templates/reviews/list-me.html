@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+  <h2>Minhas Reviews</h2>
+
+  <div class="row my-3">
+    <div class="col-8">
+      <form action="{% url 'list_reviews_me' %}" method="get">
+        <div class="input-group">
+          <input name="q" class="form-control py-2 border-right-0 border" type="search"
+            placeholder="Digite o nome da review..." id="example-search-input" />
+          <!-- <button class="btn btn-outline-secondary" >Search</button> -->
+          <span class="input-group-append">
+            <button class="btn btn-outline-secondary border-left-0 border" type="submit">
+              <i class="fa fa-search"></i>
+              </a>
+          </span>
+        </div>
+      </form>
+    </div>
+    <div class="col-4 text-right">
+      <a type="button" class="botao btn btn-primary" href="{% url 'create_reviews' %}">Criar Review</a>
+    </div>
+  </div>
+
+  <div>
+    <ul class="review-list">
+      {% for review in reviews %}
+      <li class="review-item">
+        <span>
+          {{review.id}}:
+          <a class="hyperlink2" href="{{review.id}}">
+            <span style="color: rgb(255, 217, 0); font-size: 25px; font-weight: bold">{{ review.title }}</span>
+            <i style="color: darkgrey; font-size: 15px">{{review.created_at}}</i></a>
+  
+          <a class="fas fa-trash" type="submit" href="delete/{{review.id}}" class="delete-btn"></a>
+          <a class="fas fa-edit" href="update/{{review.id}}"></a>
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
