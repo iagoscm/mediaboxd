@@ -18,21 +18,29 @@
     <div id="imagens" class="body2">
       <p class="subtitulo"><b>Todas as formas de entretenimento em um só lugar!</b></p>
       <div class="row">
-        <div class="column">
-          <img src="/static/imagens/filme.jpg" alt="Esquadrao Suicida" style="width:100%">
-          <p>Filmes</p>
+        <div class="column image-container">
+          <a href="/reviews/?media_type=movie" style="text-decoration: none; color:black ">
+            <img src="{{movie.cover_url}}" alt="{{movie.name}}" class="image-item">
+            <p>Filmes</p>            
+          </a>
         </div>
-        <div class="column">
-          <img src="/static/imagens/serie.jpeg" alt="Squid Game" style="width:100%">
-          <p>Séries</p>
+        <div class="column image-container">
+          <a href="/reviews/?media_type=serie" style="text-decoration: none; color:black ">
+            <img src="{{serie.cover_url}}" alt="{{serie.name}}" class="image-item">
+            <p>Séries</p>            
+          </a>
         </div>
-        <div class="column">
-          <img src="/static/imagens/jogo.png" alt="Back 4 Blood" style="width:100%">
-          <p>Jogos</p>
+        <div class="column image-container">
+          <a href="/reviews/?media_type=game" style="text-decoration: none; color:black ">
+            <img src="{{game.cover_url}}" alt="{{game.name}}" class="image-item">
+            <p>Jogos</p>            
+          </a>
         </div>
-        <div class="column">
-          <img src="/static/imagens/livro.png" alt="Vermelho, Branco e Sangue Azul" style="width:100%">
-          <p>Livros</p>
+        <div class="column image-container">
+          <a href="/reviews/?media_type=book" style="text-decoration: none; color:black ">
+            <img src="{{book.cover_url}}" alt="{{book.name}}" class="image-item">
+            <p>Livros</p>            
+          </a>
         </div>
       </div>
     </div>

@@ -280,3 +280,10 @@ ul.messages li {
   display: inline;
   float: left;
 }
+
+.image-item {
+  float: left;
+  width:  250px;
+  height: 300px;
+  object-fit: cover;
+}

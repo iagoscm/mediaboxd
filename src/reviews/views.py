@@ -23,7 +23,7 @@ def list_reviews(request):
     else:
         reviews = Review.objects.all()
 
-    return render(request, "reviews/list-public.html", {"reviews": reviews})
+    return render(request, "reviews/list-public.html", {"reviews": reviews, "query": query})
 
 
 @login_required
@@ -58,7 +58,8 @@ def create_review(request):
 @login_required
 def update_review(request, id):
     review = Review.objects.get(id=id)
-    form = ReviewForm(request.POST or None, instance=review)
+    print(review.author)
+    form = ReviewForm(request.POST or None, instance=review, initial={"media_id": review.media.id, "media_value": review.media.name})
 
     if form.is_valid():
         form.save()

@@ -1,5 +1,23 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from reviews.models import Media
+
 
 def index(request):
-    return render(request, 'index.html', {})
+    movie = Media.objects.filter(media_type="movie").values(
+        "cover_url", "id", "media_type", "name"
+    ).first()
+    book = Media.objects.filter(media_type="book").values(
+        "cover_url", "id", "media_type", "name"
+    ).first()
+    game = Media.objects.filter(media_type="game").values(
+        "cover_url", "id", "media_type", "name"
+    ).first()
+    serie = Media.objects.filter(media_type="serie").values(
+        "cover_url", "id", "media_type", "name"
+    ).first()
+
+    return render(
+        request,
+        "index.html",
+        {"movie": movie, "book": book, "game": game, "serie": serie},
+    )

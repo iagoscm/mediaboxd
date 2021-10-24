@@ -2,6 +2,12 @@
 
 <div>
   <h2>Reviews</h2>
+  <span>
+    Encontrados {{reviews|length}} reviews
+    {% if query %}
+    para a busca: "{{ query }}"
+    {% endif %}
+   </span>
   <div class="row my-3">
     <div class="col-12">
       <form action="{% url 'list_reviews' %}" method="get">
@@ -18,15 +24,19 @@
       </form>
     </div>
   </div>
+  <div class="row my-3">
     {% for review in reviews %}
-    <div class="card" style="width: 18rem; color:black">
-      <div class="card-body">
-        <h5 class="card-title">{{review.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{review.content|truncatechars:40}}</h6>
-        <p class="card-text"></p>
-        <a href="{{review.id}}" class="card-link">Ler</a>
-      </div>
+    <div class="col-4 mb-3">
+      <div class="card" style="color:black">
+        <div class="card-body">
+          <h5 class="card-title">{{review.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{review.content|truncatechars:40}}</h6>
+          <p class="card-text"></p>
+          <a href="{{review.id}}" class="card-link">Ler</a>
+        </div>
+    </div>
     </div>
     {% endfor %}
+  </div>
 </div>
 {% endblock %}
