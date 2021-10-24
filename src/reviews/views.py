@@ -5,18 +5,21 @@ from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
+
+
 @login_required
 def list_reviews(request):
-    query = request.GET.get('q')
+    query = request.GET.get("q")
 
     if query:
         reviews = Review.objects.filter(
-        (Q(title__icontains=query) | Q(content__icontains=query)) & (Q(author_id__exact=request.user.id))
+            (Q(title__icontains=query) | Q(content__icontains=query))
+            & (Q(author_id__exact=request.user.id))
         )
     else:
         reviews = Review.objects.filter(Q(author_id__exact=request.user.id))
 
-    return render(request, 'reviews/list.html', {'reviews': reviews})
+    return render(request, "reviews/list.html", {"reviews": reviews})
 
 
 @login_required
@@ -26,11 +29,11 @@ def create_review(request):
     if form.is_valid():
         review = form.save(commit=False)
         review.author = request.user
-        review.media = Media.objects.get(pk=form.cleaned_data['media_id'])
+        review.media = Media.objects.get(pk=form.cleaned_data["media_id"])
         review.save()
-        return redirect('list_reviews')
-    
-    return render(request, 'reviews/form-create.html', {'form': form})
+        return redirect("list_reviews")
+
+    return render(request, "reviews/form-create.html", {"form": form})
 
 
 @login_required
@@ -40,9 +43,9 @@ def update_review(request, id):
 
     if form.is_valid():
         form.save()
-        return redirect('list_reviews')
+        return redirect("list_reviews")
 
-    return render(request, 'reviews/form-update.html', {'form': form, 'review': review})
+    return render(request, "reviews/form-update.html", {"form": form, "review": review})
 
 
 @login_required
@@ -50,19 +53,21 @@ def delete_review(request, id):
     task = get_object_or_404(Review, pk=id)
     task.delete()
 
-    messages.info(request, 'Tarefa deletada com sucesso.')
+    messages.info(request, "Tarefa deletada com sucesso.")
 
-    return redirect('list_reviews')
+    return redirect("list_reviews")
+
 
 def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
-    return render(request, 'reviews/show.html', {'review': review})
+    return render(request, "reviews/show.html", {"review": review})
+
 
 def media_autocomplete(request):
-    busca = request.GET['term']
-    medias = Media.objects.filter(name__icontains=busca).values('id', 'name')
+    busca = request.GET["term"]
+    medias = Media.objects.filter(name__icontains=busca).values("id", "name")
     res = []
     for media in medias:
-        res.append({'value': media['id'], 'label': media['name']})
+        res.append({"value": media["id"], "label": media["name"]})
 
     return JsonResponse(res, safe=False)
