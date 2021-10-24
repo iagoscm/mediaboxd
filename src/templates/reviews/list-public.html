@@ -1,25 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
 <div style="height: 400px; padding: 40px">
-  <a class="hyperlink2" href="/reviews/"><h2>Lista de Reviews</h2></a>
-  <a class="botao btn btn-primary" href="{% url 'create_reviews' %}"
-    >Criar Review</a
-  >
+  <h2>Reviews</h2>
   <div class="col-9 search-div">
-    <!-- <form action="{% url 'list_reviews' %}" method="get">
-            <input class="form-control" style="width: 50%;" name="q" type="text" placeholder="Digite o nome da review...">
-            <a class="fas fa-search" href="{% url 'list_reviews' %}"></a> 
-        </form> -->
     <form action="{% url 'list_reviews' %}" method="get">
-      <div class="input-group col-md-8">
+      <div class="input-group">
         <input
           name="q"
           class="form-control py-2 border-right-0 border"
           type="search"
-          placeholder="Digite o nome da review..."
-          id="example-search-input"
+          placeholder="Procure por tipo de midia, nome ou assunto..."
+          id="review-search"
         />
-        <!-- <button class="btn btn-outline-secondary" >Search</button> -->
         <span class="input-group-append">
           <button
             class="btn btn-outline-secondary border-left-0 border"
@@ -34,8 +26,6 @@
   <ul class="review-list">
     {% for review in reviews %}
     <li class="review-item">
-      <span>
-        {{review.id}}:
         <a class="hyperlink2" href="{{review.id}}">
           <span
             style="color: rgb(255, 217, 0); font-size: 25px; font-weight: bold"
@@ -45,18 +35,28 @@
             >{{review.created_at}}</i
           ></a
         >
-
-        <a
-          class="fas fa-trash"
-          type="submit"
-          href="delete/{{review.id}}"
-          class="delete-btn"
-        ></a>
-        <a class="fas fa-edit" href="update/{{review.id}}"></a>
-      </span>
     </li>
     {% endfor %}
   </ul>
 </div>
+
+<script>
+    $(function () {
+        $("#review-search").autocomplete({
+            source: '{% url "review_autocomplete" %}',
+            minLength: 2,
+            select: function (event, ui) {
+                $('#media').val(ui.item.label);
+                $('#media-id').val(ui.item.value);
+                return false;
+            },
+            focus: function (event, ui) {
+                $('#media').val(ui.item.label);
+                $('#media-id').val(ui.item.value);
+                return false;
+            }
+        });
+    });
+</script>
 
 {% endblock %}

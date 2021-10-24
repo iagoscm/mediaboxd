@@ -24,7 +24,7 @@
 <script>
     $(function () {
         $("#media").autocomplete({
-            source: '{% url 'media_autocomplete' %}',
+            source: '{% url "media_autocomplete" %}',
             minLength: 2,
             select: function (event, ui) {
                 $('#media').val(ui.item.label);

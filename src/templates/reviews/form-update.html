@@ -13,11 +13,31 @@
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next }}">
                     {{form|crispy}}
+                    <input type="hidden" id="project-id">        
                     <button type="submit" class="botao btn btn-primary btn-block"> Atualizar </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#media").autocomplete({
+            source: '{% url "media_autocomplete" %}',
+            minLength: 2,
+            select: function (event, ui) {
+                $('#media').val(ui.item.label);
+                $('#media-id').val(ui.item.value);
+                return false;
+            },
+            focus: function (event, ui) {
+                $('#media').val(ui.item.label);
+                $('#media-id').val(ui.item.value);
+                return false;
+            }
+        });
+    });
+</script>
 
 {% endblock %}

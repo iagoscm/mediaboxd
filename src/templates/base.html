@@ -26,14 +26,14 @@
             <a class="navbar-brand" href="/">mediaboxd</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <a class="hyperlink nav-link" href="/filmes">Filmes</a>
-                    <a class="hyperlink nav-link" href="/series">Séries</a>
-                    <a class="hyperlink nav-link" href="/jogos">Jogos</a>
-                    <a class="hyperlink nav-link" href="/livros">Livros</a>
+                    <a class="hyperlink nav-link" href="/reviews?q=movie">Filmes</a>
+                    <a class="hyperlink nav-link" href="/reviews?q=serie">Séries</a>
+                    <a class="hyperlink nav-link" href="/reviews?q=game">Jogos</a>
+                    <a class="hyperlink nav-link" href="/reviews?q=book">Livros</a>
                 </ul>
                 {% if user.is_authenticated %}
                 <div class="nav-item form-inline my-2 my-md-0">
-                    <a class="hyperlink nav-link" href="/reviews"> Minhas Reviews</a>
+                    <a class="hyperlink nav-link" href="{% url 'list_reviews_me'%}"> Minhas Reviews</a>
                 </div>
                 <div class="nav-item form-inline my-2 my-md-0">
                     <a class="hyperlink nav-link" href="{% url 'logout' %}">Logout</a>
