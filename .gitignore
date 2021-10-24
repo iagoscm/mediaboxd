@@ -3,3 +3,4 @@ myenv
 myvenv
 *.sqlite3
 __pycache__
+staticfiles/**/*
