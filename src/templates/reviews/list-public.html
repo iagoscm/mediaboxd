@@ -33,6 +33,10 @@
           <h6 class="card-subtitle mb-2 text-muted">{{review.content|truncatechars:40}}</h6>
           <p class="card-text"></p>
           <a href="{{review.id}}" class="card-link">Ler</a>
+          <br>
+          {% for tag in review.tags.all %}
+          <span class="badge badge-warning">{{tag}}</span>
+          {% endfor %}
         </div>
     </div>
     </div>
