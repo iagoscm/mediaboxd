@@ -8,14 +8,23 @@ from django.http import JsonResponse
 
 def list_reviews(request):
     query = request.GET.get("q")
+    media_type = request.GET.get("media_type")
 
-    if query:
+    if query and not media_type:
         reviews = Review.objects.filter(
-            (Q(media__media_type__icontains=query)))
+            Q(title__icontains=query)
+            | Q(content__icontains=query)
+            | Q(media__name__icontains=query)
+            | Q(media__media_type__icontains=query)
+            | Q(tags__title__icontains=query)
+        )
+    elif media_type:
+        reviews = Review.objects.filter(media__media_type__icontains=media_type)
     else:
         reviews = Review.objects.all()
 
     return render(request, "reviews/list-public.html", {"reviews": reviews})
+
 
 @login_required
 def list_reviews_me(request):
@@ -71,21 +80,6 @@ def delete_review(request, id):
 def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
     return render(request, "reviews/show.html", {"review": review})
-
-def review_autocomplete(request):
-    term = request.GET["term"]
-    reviews = Review.objects.filter(
-        (
-            Q(title__icontains=term) |
-            Q(content__icontains=term) |
-            Q(media__name__icontains=term) |
-            Q(media__media_type__icontains=term) |
-            Q(tags__title__icontains=term)
-        )
-    ).values("id", "title")
-    res = [{"value": review["id"], "label": review["title"]} for review in reviews]
-
-    return JsonResponse(res, safe=False)
 
 def media_autocomplete(request):
     term = request.GET["term"]

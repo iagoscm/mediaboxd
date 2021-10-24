@@ -6,8 +6,7 @@ from .views import (
     update_review,
     delete_review,
     media_autocomplete,
-    list_reviews,
-    review_autocomplete
+    list_reviews
 )
 
 urlpatterns = [
@@ -18,5 +17,4 @@ urlpatterns = [
     path("update/<int:id>/", update_review, name="update_review"),
     path("delete/<int:id>/", delete_review, name="delete_review"),
     path("media-autocomplete", media_autocomplete, name="media_autocomplete"),
-    path("review-autocomplete", review_autocomplete, name="review_autocomplete"),
 ]

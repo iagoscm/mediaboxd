@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -21,49 +21,66 @@
 </head>
 
 <body>
-    <div style="padding: 0px;" class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="/">mediaboxd</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <a class="hyperlink nav-link" href="/reviews?q=movie">Filmes</a>
-                    <a class="hyperlink nav-link" href="/reviews?q=serie">Séries</a>
-                    <a class="hyperlink nav-link" href="/reviews?q=game">Jogos</a>
-                    <a class="hyperlink nav-link" href="/reviews?q=book">Livros</a>
-                </ul>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">mediaboxd</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="hyperlink nav-link" href="/reviews?media_type=movie">Filmes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="hyperlink nav-link" href="/reviews?media_type=serie">Séries</a>
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                    <a class="hyperlink nav-link" href="/reviews?media_type=game">Jogos</a>
+                </li>
+                <div class="li-nav-item">
+                    <a class="hyperlink nav-link" href="/reviews?media_type=book">Livros</a>
+                </div>
+            </ul>
+            <ul class="navbar-nav">
                 {% if user.is_authenticated %}
-                <div class="nav-item form-inline my-2 my-md-0">
+                <div class="nav-item form-inline my-2 my-md-0 font-weight-bold">
                     <a class="hyperlink nav-link" href="{% url 'list_reviews_me'%}"> Minhas Reviews</a>
                 </div>
-                <div class="nav-item form-inline my-2 my-md-0">
+                <div class="nav-item form-inline my-2 my-md-0 font-weight-bold">
                     <a class="hyperlink nav-link" href="{% url 'logout' %}">Logout</a>
                 </div>
                 {% else %}
-                <div class="nav-item form-inline my-2 my-md-0">
+                <div class="nav-item form-inline my-2 my-md-0 font-weight-bold">
                     <a class="hyperlink nav-link" href="{% url 'login' %}">Login</a>
                 </div>
                 {% endif %}
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
+            </ul>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
 </body>
 
 <footer>
-    <div class="container-fluid">
-        <nav>
-            <a class="hyperlink-footer nav-link" href="/sobre">Sobre</a>
-            <a class="hyperlink-footer nav-link" href="/api">API</a>
-            <a class="hyperlink-footer nav-link" href="/colabore">Colabore com o Site</a>
-            <a class="hyperlink-footer nav-link" href="/comunidade">Comunidade</a>
-        </nav>
-        <p><i>Todos os direitos reservados</i></p>
-    </div>
+    <div class="text-center">
+            <ul class="list-footer">
+                <li>
+                    <a class="hyperlink-footer nav-link" href="/sobre">Sobre</a>
+                </li>
+                <li>
+                    <a class="hyperlink-footer nav-link" href="/colabore">Colabore com o Site</a>
+                </li>
+                <li>
+                    <a class="hyperlink-footer nav-link" href="/comunidade">Comunidade</a>
+                </li>
+            </ul>
+        </div>
 </footer>
 
 </html>

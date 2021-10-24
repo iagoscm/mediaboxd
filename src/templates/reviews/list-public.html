@@ -1,62 +1,32 @@
 {% extends 'base.html' %} {% block content %}
 
-<div style="height: 400px; padding: 40px">
+<div>
   <h2>Reviews</h2>
-  <div class="col-9 search-div">
-    <form action="{% url 'list_reviews' %}" method="get">
-      <div class="input-group">
-        <input
-          name="q"
-          class="form-control py-2 border-right-0 border"
-          type="search"
-          placeholder="Procure por tipo de midia, nome ou assunto..."
-          id="review-search"
-        />
-        <span class="input-group-append">
-          <button
-            class="btn btn-outline-secondary border-left-0 border"
-            type="submit"
-          >
-            <i class="fa fa-search"></i>
-          </a>
-        </span>
-      </div>
-    </form>
+  <div class="row my-3">
+    <div class="col-12">
+      <form action="{% url 'list_reviews' %}" method="get">
+        <div class="input-group">
+          <input name="q" class="form-control py-2 border-right-0 border" type="search"
+            placeholder="Digite o nome da review..." id="example-search-input" />
+          <!-- <button class="btn btn-outline-secondary" >Search</button> -->
+          <span class="input-group-append">
+            <button class="btn btn-outline-secondary border-left-0 border" type="submit">
+              <i class="fa fa-search"></i>
+              </a>
+          </span>
+        </div>
+      </form>
+    </div>
   </div>
-  <ul class="review-list">
     {% for review in reviews %}
-    <li class="review-item">
-        <a class="hyperlink2" href="{{review.id}}">
-          <span
-            style="color: rgb(255, 217, 0); font-size: 25px; font-weight: bold"
-            >{{ review.title }}</span
-          >
-          <i style="color: darkgrey; font-size: 15px"
-            >{{review.created_at}}</i
-          ></a
-        >
-    </li>
+    <div class="card" style="width: 18rem; color:black">
+      <div class="card-body">
+        <h5 class="card-title">{{review.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{review.content|truncatechars:40}}</h6>
+        <p class="card-text"></p>
+        <a href="{{review.id}}" class="card-link">Ler</a>
+      </div>
+    </div>
     {% endfor %}
-  </ul>
 </div>
-
-<script>
-    $(function () {
-        $("#review-search").autocomplete({
-            source: '{% url "review_autocomplete" %}',
-            minLength: 2,
-            select: function (event, ui) {
-                $('#media').val(ui.item.label);
-                $('#media-id').val(ui.item.value);
-                return false;
-            },
-            focus: function (event, ui) {
-                $('#media').val(ui.item.label);
-                $('#media-id').val(ui.item.value);
-                return false;
-            }
-        });
-    });
-</script>
-
 {% endblock %}
