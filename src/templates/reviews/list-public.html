@@ -7,7 +7,7 @@
     {% if query %}
     para a busca: "{{ query }}"
     {% endif %}
-   </span>
+  </span>
   <div class="row my-3">
     <div class="col-12">
       <form action="{% url 'list_reviews' %}" method="get">
@@ -26,7 +26,7 @@
   </div>
   <div class="row my-3">
     {% for review in reviews %}
-    <div class="col-4 mb-3">
+    <div class="col-lg-4 col-md-8 mb-3">
       <div class="card" style="color:black">
         <div class="card-body">
           <h5 class="card-title">{{review.title}}</h5>
@@ -35,10 +35,10 @@
           <a href="{{review.id}}" class="card-link">Ler</a>
           <br>
           {% for tag in review.tags.all %}
-          <span class="badge badge-warning">{{tag}}</span>
+            <span class="badge badge-warning">{{tag}}</span>
           {% endfor %}
         </div>
-    </div>
+      </div>
     </div>
     {% endfor %}
   </div>

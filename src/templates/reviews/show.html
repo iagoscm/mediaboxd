@@ -6,7 +6,7 @@
     <br>
     <p>{{review.content}}</p>
     <br>
-    <p class="font-weight-bold">Por {{review.author}}, em {{review.created_at}}</p>
+    <p class="font-weight-bold">Review de <a href="/reviews?q={{review.media.name}}">{{review.media.name}}</a>. Por <a href="/reviews?u={{review.author}}">{{review.author}}</a>, em {{review.created_at}}</p>
     <br>
     {% for tag in review.tags.all %}
     <span class="badge badge-warning">{{tag}}</span>

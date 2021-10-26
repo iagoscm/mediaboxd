@@ -10,7 +10,8 @@ def list_reviews(request):
     query = request.GET.get("q")
     media_type = request.GET.get("media_type")
 
-    if query and not media_type:
+    if request.GET.get("q"):
+        query = request.GET.get("q")
         reviews = Review.objects.filter(
             Q(title__icontains=query)
             | Q(content__icontains=query)
@@ -18,8 +19,12 @@ def list_reviews(request):
             | Q(media__media_type__icontains=query)
             | Q(tags__title__icontains=query)
         )
-    elif media_type:
-        reviews = Review.objects.filter(media__media_type__icontains=media_type)
+    if request.GET.get("media_type"):
+        query = request.GET.get("media_type")
+        reviews = Review.objects.filter(media__media_type__icontains=query)
+    if request.GET.get("u"):
+        query = request.GET.get("u")
+        reviews = Review.objects.filter(author__username__icontains=query)
     else:
         reviews = Review.objects.all()
 
@@ -58,11 +63,12 @@ def create_review(request):
 @login_required
 def update_review(request, id):
     review = Review.objects.get(id=id)
-    print(review.author)
     form = ReviewForm(request.POST or None, instance=review, initial={"media_id": review.media.id, "media_value": review.media.name})
 
     if form.is_valid():
-        form.save()
+        review = form.save(commit=False)
+        review.media = Media.objects.get(pk=form.cleaned_data["media_id"])
+        review.save()
         return redirect("list_reviews_me")
 
     return render(request, "reviews/form-update.html", {"form": form, "review": review})

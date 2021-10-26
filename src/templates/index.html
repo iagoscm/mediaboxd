@@ -2,48 +2,52 @@
 {% block content %}
 
 <main style="text-align: center;" role="main" class="inner cover">
-    <div id="titulo_do_site">
-      <h1>mediaboxd</h1>
-      <p class="subtitulo">O melhor site de reviews</p>
-      <p class="lead">
-        <a href="/accounts/login/" class="botao btn btn-lg btn-secondary">Saiba mais</a>
-      </p>
-    </div>
-    
-    <div style="padding:40px;font-size:24px;" id="texto_explicativo">
-      <p>No Mediaboxd você pode fazer reviews do que você mais gosta de fazer! 
-      <br><b>Crie já sua conta e comece a dar sua opinião!</b></p>
-    </div>
+  <div id="titulo_do_site">
+    <h1>mediaboxd</h1>
+    <p class="subtitulo">O melhor site de reviews</p>
+    <p class="lead">
+      {% if user.is_authenticated %}
+      <a href="/reviews/me" class="botao btn btn-lg btn-secondary">Minhas reviews</a>
+      {% else %}
+      <a href="/accounts/login/" class="botao btn btn-lg btn-secondary">Saiba mais</a>
+      {% endif %}
+    </p>
+  </div>
 
-    <div id="imagens" class="body2">
-      <p class="subtitulo"><b>Todas as formas de entretenimento em um só lugar!</b></p>
-      <div class="row">
-        <div class="column image-container">
-          <a href="/reviews/?media_type=movie" style="text-decoration: none; color:black ">
-            <img src="{{movie.cover_url}}" alt="{{movie.name}}" class="image-item">
-            <p>Filmes</p>            
-          </a>
-        </div>
-        <div class="column image-container">
-          <a href="/reviews/?media_type=serie" style="text-decoration: none; color:black ">
-            <img src="{{serie.cover_url}}" alt="{{serie.name}}" class="image-item">
-            <p>Séries</p>            
-          </a>
-        </div>
-        <div class="column image-container">
-          <a href="/reviews/?media_type=game" style="text-decoration: none; color:black ">
-            <img src="{{game.cover_url}}" alt="{{game.name}}" class="image-item">
-            <p>Jogos</p>            
-          </a>
-        </div>
-        <div class="column image-container">
-          <a href="/reviews/?media_type=book" style="text-decoration: none; color:black ">
-            <img src="{{book.cover_url}}" alt="{{book.name}}" class="image-item">
-            <p>Livros</p>            
-          </a>
-        </div>
+  <div style="padding:40px;font-size:24px;" id="texto_explicativo">
+    <p>No Mediaboxd você pode fazer reviews do que você mais gosta de fazer!
+      <br><b>Crie já sua conta e comece a dar sua opinião!</b></p>
+  </div>
+
+  <div id="imagens" class="body2">
+    <p class="subtitulo"><b>Todas as formas de entretenimento em um só lugar!</b></p>
+    <div class="row my-2">
+      <div class="col-lg-3 col-sm-1 col-md-8 image-container">
+        <a href="/reviews/?media_type=movie" style="text-decoration: none; color:black ">
+          <img src="{{movie.cover_url}}" alt="{{movie.name}}" class="image-item">
+          <p>Filmes</p>
+        </a>
+      </div>
+      <div class="col-lg-3 col-sm-1 col-md-8">
+        <a href="/reviews/?media_type=serie" style="text-decoration: none; color:black ">
+          <img src="{{serie.cover_url}}" alt="{{serie.name}}" class="image-item">
+          <p>Séries</p>
+        </a>
+      </div>
+      <div class="col-lg-3 col-sm-1 col-md-8">
+        <a href="/reviews/?media_type=game" style="text-decoration: none; color:black ">
+          <img src="{{game.cover_url}}" alt="{{game.name}}" class="image-item">
+          <p>Jogos</p>
+        </a>
+      </div>
+      <div class="col-lg-3 col-sm-1 col-md-8">
+        <a href="/reviews/?media_type=book" style="text-decoration: none; color:black ">
+          <img src="{{book.cover_url}}" alt="{{book.name}}" class="image-item">
+          <p>Livros</p>
+        </a>
       </div>
     </div>
+  </div>
 </main>
 
 
