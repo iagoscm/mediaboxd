@@ -7,9 +7,6 @@ from django.contrib import messages
 from django.http import JsonResponse
 
 def list_reviews(request):
-    query = request.GET.get("q")
-    media_type = request.GET.get("media_type")
-
     if request.GET.get("q"):
         query = request.GET.get("q")
         reviews = Review.objects.filter(
@@ -19,10 +16,10 @@ def list_reviews(request):
             | Q(media__media_type__icontains=query)
             | Q(tags__title__icontains=query)
         )
-    if request.GET.get("media_type"):
+    elif request.GET.get("media_type"):
         query = request.GET.get("media_type")
         reviews = Review.objects.filter(media__media_type__icontains=query)
-    if request.GET.get("u"):
+    elif request.GET.get("u"):
         query = request.GET.get("u")
         reviews = Review.objects.filter(author__username__icontains=query)
     else:

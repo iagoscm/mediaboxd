@@ -61,13 +61,12 @@ class Review(models.Model):
      rating = models.IntegerField(
         choices=RATING_CHOICES,
         default=0,
-        validators=[MinValueValidator(1), MaxValueValidator(10)]
+        validators=[MinValueValidator(1), MaxValueValidator(10)],
     )
      media = models.ForeignKey(Media, on_delete=models.CASCADE)
 
      def __str__(self):
          return self.title
-     media = models.ForeignKey(Media, on_delete=models.CASCADE, null=True)
 
 
      def __str__(self):
