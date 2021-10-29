@@ -16,13 +16,8 @@ def list_reviews(request):
             | Q(media__name__icontains=query)
             | Q(media__media_type__icontains=query)
             | Q(tags__title__icontains=query)
-        )
-    elif request.GET.get("media_type"):
-        query = request.GET.get("media_type")
-        reviews = Review.objects.filter(media__media_type__icontains=query)
-    elif request.GET.get("u"):
-        query = request.GET.get("u")
-        reviews = Review.objects.filter(author__username__icontains=query)
+            | Q(author__username__icontains=query)
+        ).distinct()
     else:
         reviews = Review.objects.all()
 
@@ -54,7 +49,9 @@ def create_review(request):
         review = form.save(commit=False)
         review.author = request.user
         review.media = Media.objects.get(pk=form.cleaned_data["media_id"])
+        review.rating = form.cleaned_data["rating"]
         review.save()
+        review.tags.set(form.cleaned_data["tags"])
         return redirect("list_reviews_me")
 
     return render(request, "reviews/form-create.html", {"form": form})

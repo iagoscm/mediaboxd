@@ -43,6 +43,9 @@
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                 <div class="nav-item form-inline my-2 my-md-0 font-weight-bold">
+                    <p style="color: black;" class="font-weight-light">Olá, {{user | truncatechars:10}}</p>
+                </div>
+                <div class="nav-item form-inline my-2 my-md-0 font-weight-bold">
                     <a class="hyperlink nav-link" href="{% url 'list_reviews_me'%}"> Minhas Reviews</a>
                 </div>
                 <div class="nav-item form-inline my-2 my-md-0 font-weight-bold">

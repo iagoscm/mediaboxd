@@ -34,9 +34,16 @@
           <p class="card-text"></p>
           <a href="{{review.id}}" class="card-link">Ler</a>
           <br>
+          
+          {% if review.tags.all|length %}
           {% for tag in review.tags.all %}
+          <a href="?q={{tag}}">
             <span class="badge badge-warning">{{tag}}</span>
+          </a>
           {% endfor %}
+          {% else %}
+          <br>
+          {% endif %}
         </div>
       </div>
     </div>
