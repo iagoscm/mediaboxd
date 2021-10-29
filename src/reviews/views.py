@@ -60,11 +60,12 @@ def create_review(request):
 @login_required
 def update_review(request, id):
     review = Review.objects.get(id=id)
-    form = ReviewForm(request.POST or None, instance=review, initial={"media_id": review.media.id, "media_value": review.media.name})
+    form = ReviewForm(request.POST or None, instance=review, initial={"media_id": review.media.id, "media_value": review.media.name, "media_type": review.media.media_type, "tags": review.tags.all()})
 
     if form.is_valid():
         review = form.save(commit=False)
         review.media = Media.objects.get(pk=form.cleaned_data["media_id"])
+        review.tags.set(form.cleaned_data["tags"])
         review.save()
         return redirect("list_reviews_me")
 
