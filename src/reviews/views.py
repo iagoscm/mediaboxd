@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 
+
 def list_reviews(request):
     if request.GET.get("q"):
         query = request.GET.get("q")
@@ -25,7 +26,9 @@ def list_reviews(request):
     else:
         reviews = Review.objects.all()
 
-    return render(request, "reviews/list-public.html", {"reviews": reviews, "query": query})
+    return render(
+        request, "reviews/list-public.html", {"reviews": reviews, "query": query}
+    )
 
 
 @login_required
@@ -60,12 +63,23 @@ def create_review(request):
 @login_required
 def update_review(request, id):
     review = Review.objects.get(id=id)
-    form = ReviewForm(request.POST or None, instance=review, initial={"media_id": review.media.id, "media_value": review.media.name, "media_type": review.media.media_type, "tags": review.tags.all()})
+    form = ReviewForm(
+        request.POST or None,
+        instance=review,
+        initial={
+            "media_id": review.media.id,
+            "media_value": review.media.name,
+            "media_type": review.media.media_type,
+            "tags": review.tags.all(),
+            "rating": review.rating,
+        },
+    )
 
     if form.is_valid():
         review = form.save(commit=False)
         review.media = Media.objects.get(pk=form.cleaned_data["media_id"])
         review.tags.set(form.cleaned_data["tags"])
+        review.rating = form.cleaned_data["rating"]
         review.save()
         return redirect("list_reviews_me")
 
@@ -85,6 +99,7 @@ def delete_review(request, id):
 def show_review(request, id):
     review = get_object_or_404(Review, pk=id)
     return render(request, "reviews/show.html", {"review": review})
+
 
 def media_autocomplete(request):
     term = request.GET["term"]
