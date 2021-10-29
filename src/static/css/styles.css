@@ -287,3 +287,16 @@ ul.messages li {
   height: 300px;
   object-fit: cover;
 }
+
+.text-table-header {
+  color: black;
+}
+
+.text-table {
+  color: white;
+}
+
+.table-borderless td,
+.table-borderless th {
+    border-top: 0;
+}

@@ -19,27 +19,38 @@
       </form>
     </div>
     <div class="col-4 text-right">
-      <a type="button" class="botao btn btn-primary" href="{% url 'create_reviews' %}">Criar Review</a>
+      <a type="button" class="botao btn btn-primary" href="{% url 'create_reviews' %}">Adicionar</a>
     </div>
   </div>
-
-  <div>
-    <ul class="review-list">
+  <table class="table table-borderless table-hover">
+    <thead style="background-color: rgb(255, 217, 0);">
+      <tr>
+        <th class="text-table-header" scope="col">#</th>
+        <th class="text-table-header" scope="col">Título</th>
+        <th class="text-table-header d-none d-sm-block" scope="col">Criado em</th>
+        <th class="text-table-header" scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
       {% for review in reviews %}
-      <li class="review-item">
-        <span>
-          {{review.id}}:
+      <tr>
+        <th class="text-table" scope="row">{{review.id}}</th>
+        <td>
           <a class="hyperlink2" href="{{review.id}}">
-            <span style="color: rgb(255, 217, 0); font-size: 25px; font-weight: bold">{{ review.title }}</span>
-            <i style="color: darkgrey; font-size: 15px">{{review.created_at}}</i></a>
-  
-          <a class="fas fa-trash" type="submit" href="delete/{{review.id}}" class="delete-btn"></a>
+            <span style="color: rgb(255, 217, 0); font-weight: bold">{{ review.title|truncatechars:18}}</span>
+          </a>
+        </td>
+        <td class="text-table d-none d-sm-block">{{review.created_at}}</td>
+        <td>
+          <div>
+            <a class="fas fa-trash" type="submit" href="delete/{{review.id}}"></a>
           <a class="fas fa-edit" href="update/{{review.id}}"></a>
-        </span>
-      </li>
+          </div>
+        </td>
+      </tr>
       {% endfor %}
-    </ul>
-  </div>
+    </tbody>
+  </table>
 </div>
 
 {% endblock %}
