@@ -2,7 +2,7 @@
 
 # 📄 Sobre o projeto
 
-O mediaboxd é um site para armazenamento e avaliação de filmes e séries assistidos, com o intuito de treinar e aprender o processo de desenvolvimento de software e as tecnologias usadas no mesmo
+O mediaboxd é um site para armazenamento e avaliação de filmes, jogos, séries e livros consumidos, com o intuito de treinar e aprender o processo de desenvolvimento de software e as tecnologias usadas no mesmo
 
 Projeto desenvolvido para a disciplina Desenvolvimento de Software da UnB - Campus Gama, ministrada pelo professor Sergio Antonio Andrade de Freitas
 
