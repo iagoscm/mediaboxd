@@ -58,6 +58,7 @@ O projeto como um todo foi separado em duas releases, onde organizamos as User S
 # ⚙️ Tecnologias utilizadas
 
 As tecnologias foram escolhidas de acordo com as tecnologias utilizadas pelos mais experientes e mais fáceis para o aprendizado dos novatos.
+<div align="center" style="display: inline_block">
 
 | Frontend |	Backend | Framework | Infraestrutura (deploy) |
 | - | - | - | - |
@@ -67,7 +68,9 @@ As tecnologias foram escolhidas de acordo com as tecnologias utilizadas pelos ma
 | - | - |
 | PostgreSQL | SQLite |
 
-<div style="display: inline_block">
+</div>
+
+<div align="center" style="display: inline_block">
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="react" width="50rem"/>
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="python" width="50rem"/>
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="django" width="50rem"/>
