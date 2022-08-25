@@ -1,12 +1,12 @@
 <h1 align="center"> mediaboxd </h1>
 
-# 📄 Sobre o projeto
+### 📄 Sobre o projeto
 
 O mediaboxd é um site para armazenamento e avaliação de filmes, jogos, séries e livros consumidos, com o intuito de treinar e aprender o processo de desenvolvimento de software e as tecnologias usadas no mesmo
 
 Projeto desenvolvido para a disciplina Desenvolvimento de Software da UnB - Campus Gama, ministrada pelo professor Sergio Antonio Andrade de Freitas
 
-# 🤝 Colaboradores
+### 🤝 Colaboradores
 
 |![Icaro](https://github.com/icarooliv.png) |![Luan](https://github.com/Luanmq.png)|![Iago](https://github.com/iagoscm.png)|
 | - | - | - |
@@ -16,14 +16,14 @@ Projeto desenvolvido para a disciplina Desenvolvimento de Software da UnB - Camp
 | - | - | - | - |
 |[William Almeida](https://github.com/WillAllmeida)|[Gabriel Araujo](https://github.com/gabrielvaraujo)|[Hellen Faria](https://github.com/Hellen159)|[Henrique Pucci](https://github.com/HenriPucci)|
 
-# 📦 Releases
+### 📦 Releases
 
 O projeto como um todo foi separado em duas releases, onde organizamos as User Stories de maneira equalitária para tentarmos entregar o máximo de requisitos possíveis em tempo hábil
 
 <details>
 <summary>Release 1</summary>
 
-### Foco em conhecer as tecnologias, se ambientar com o processo ágil e implementar features
+#### Foco em conhecer as tecnologias, se ambientar com o processo ágil e implementar features
 
     - Dojos de Python
     - Dojos de Scrum/Ágil
@@ -41,21 +41,21 @@ O projeto como um todo foi separado em duas releases, onde organizamos as User S
 <details>
 <summary>Release 2</summary>
 
-### Foco em pequenas melhorias nas features principais e conhecer mais do processo de ciclo de vida de um software
+#### Foco em pequenas melhorias nas features principais e conhecer mais do processo de ciclo de vida de um software
     - Dojo e implementação de testes
     - Deploy (Heroku)
     - Pareamento
     - Busca e filtragem
     - Adicionar tags e mídia
     - Correções visuais (CSS/HTML)
-### Objetivos extras (não realizamos pois faltou tempo hábil)
+#### Objetivos extras (não realizamos pois faltou tempo hábil)
     - Organizar playlists de conteúdos
     - Recomendações de mídias
     - Interação com as reviews de outros usuários
 
 </details>
 
-# ⚙️ Tecnologias utilizadas
+### ⚙️ Tecnologias utilizadas
 
 As tecnologias foram escolhidas de acordo com as tecnologias utilizadas pelos mais experientes e mais fáceis para o aprendizado dos novatos.
 <div align="center" style="display: inline_block">
@@ -63,7 +63,7 @@ As tecnologias foram escolhidas de acordo com as tecnologias utilizadas pelos ma
 | Frontend |	Backend | Framework | Infraestrutura (deploy) |
 | - | - | - | - |
 | ReactJS | Python | Django | Heroku |
-### Banco de dados
+#### Banco de dados
 | Nuvem |	Local | 
 | - | - |
 | PostgreSQL | SQLite |
@@ -79,13 +79,13 @@ As tecnologias foram escolhidas de acordo com as tecnologias utilizadas pelos ma
 <img align="center" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="django" height="50" width="50"/>
 </div>
 
-# 💻 Como rodar 
+## 💻 Como rodar 
 
-## Pré-requisitos
+### Pré-requisitos
 
 Python 3.7.0 ou maior
 
-## Criando ambiente virtual (Linux)
+### Criando ambiente virtual (Linux)
 
 Execute os comandos no terminal, a partir do diretório `src`
 
@@ -97,7 +97,7 @@ Depois, ative esse ambiente:
 
 `source myvenv/bin/activate`
 
-## Criando ambiente virtual (Windows)
+### Criando ambiente virtual (Windows)
 
 Execute os comandos no terminal, a partir do diretório `src`
 
@@ -109,7 +109,7 @@ Depois, ative esse ambiente:
 
 `myvenv\Scripts\activate`
 
-## Instalando pacotes e subindo o servidor
+### Instalando pacotes e subindo o servidor
 
 Em seguida, instale o Django 
 
